@@ -4,7 +4,7 @@
   },
   "hosting": [
     {
-      "site": "analog-js",
+      "site": "mre--analog-angular-firebase",
       "public": "dist/analog/public",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "cleanUrls": true,

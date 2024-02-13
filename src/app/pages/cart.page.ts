@@ -1,9 +1,9 @@
 import { CurrencyPipe, NgForOf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLinkWithHref } from '@angular/router';
-
 import { CartService } from '../cart.service';
+import { Firestore, doc, getDoc, onSnapshot } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-cart',
@@ -36,7 +36,7 @@ import { CartService } from '../cart.service';
     </form>
   `,
 })
-export default class CartComponent {
+export default class CartComponent implements AfterViewInit {
   private cartService = inject(CartService);
   private formBuilder = inject(FormBuilder);
 
@@ -46,6 +46,8 @@ export default class CartComponent {
     name: '',
     address: '',
   });
+
+  ngAfterViewInit() {}
 
   onSubmit(): void {
     // Process checkout data here

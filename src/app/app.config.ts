@@ -1,12 +1,13 @@
 import { provideHttpClient } from '@angular/common/http';
-import { ApplicationConfig } from '@angular/core';
-import { provideClientHydration } from '@angular/platform-browser';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideFileRouter } from '@analogjs/router';
+import { FirebaseModule } from './modules/firebase.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideFileRouter(),
     provideHttpClient(),
     // provideClientHydration(),
+    importProvidersFrom(FirebaseModule),
   ],
 };
